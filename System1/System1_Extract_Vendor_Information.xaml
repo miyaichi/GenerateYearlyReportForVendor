@@ -1,20 +1,11 @@
-﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="System1_Extract_Vendor_Information"
- xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
- xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
- xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
- xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
- xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
- xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
- xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
- xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
- xmlns:ui="http://schemas.uipath.com/workflow/activities"
- xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="System1_Extract_Vendor_Information" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="out_TaxID" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>802,1065</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>System1_Extract_Vendor_Information_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -64,31 +55,41 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: Work Items ページからVendor Informationを取得します&#xA;&#xA;Parameter:&#xA;out_TaxD (Out, String): 取得したTax ID&#xA;&#xA;Precondition: IEでSystem 1のWork Item（Type = WI4: Generate Yearly Report for Vendor）の詳細ページが開いている必要があります" DisplayName="System1_Extract_Vendor_Information" sap2010:WorkflowViewState.IdRef="Sequence_2">
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser System1 WorkItem Detail" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="256bae458fb604dd4ed33210b8bf2614" Selector="&lt;html title='ACME System 1 - Work Items' /&gt;">
+  <Sequence sap2010:Annotation.AnnotationText="Description: Work Items ページからVendor Informationを取得します&#xA;&#xA;Parameter:&#xA;out_TaxD (Out, String): 取得したTax ID&#xA;&#xA;Precondition: IEでSystem 1のWork Item（Type = WI4: Generate Yearly Report for Vendor）の詳細ページが開いている必要があります" DisplayName="System1_Extract_Vendor_Information" sap:VirtualizedContainerService.HintSize="602,900" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser System1 WorkItem Detail" sap:VirtualizedContainerService.HintSize="560,691" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="4781c68edf49b7a45a91627f593493a1" Selector="&lt;html title='ACME System 1 - Work Items' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="526,545" sap2010:WorkflowViewState.IdRef="Sequence_1">
             <Sequence.Variables>
               <Variable x:TypeArguments="ui:GenericValue" Name="VrendorInformation" />
             </Sequence.Variables>
-            <ui:GetValue ContinueOnError="{x:Null}" Value="{x:Null}" DisplayName="Get Text Vendor Information" sap2010:WorkflowViewState.IdRef="GetValue_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Vendor Information" sap:VirtualizedContainerService.HintSize="484,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
               <ui:GetValue.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="0821e3d644e1fed22df8cafcd4fdd96a" Selector="&lt;webctrl idx='1' tag='H4' /&gt;" WaitForReady="INTERACTIVE" />
-              </ui:GetValue.Target>
-            </ui:GetValue>
-            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Vendor Information" sap2010:WorkflowViewState.IdRef="GetValue_2">
-              <ui:GetValue.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="39dd2f77e64e768129be934caca18575" Selector="&lt;webctrl idx='1' tag='P' /&gt;" WaitForReady="INTERACTIVE" />
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0396262c-69aa-4583-ac33-8783bc048de2" InformativeScreenshot="70079e17f9a4ad67c8dd728cf143bb77" Selector="&lt;webctrl idx='1' tag='P' /&gt;" WaitForReady="INTERACTIVE">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                </ui:Target>
               </ui:GetValue.Target>
               <ui:GetValue.Value>
                 <OutArgument x:TypeArguments="ui:GenericValue">[VrendorInformation]</OutArgument>
               </ui:GetValue.Value>
             </ui:GetValue>
-            <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign DisplayName="Assign out_TaxID" sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[out_TaxID]</OutArgument>
               </Assign.To>
@@ -96,41 +97,14 @@
                 <InArgument x:TypeArguments="x:String">[VrendorInformation.Split(Environment.NewLine.ToCharArray)(0).Substring("TaxID: ".Length)]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[String.IsNullOrEmpty(out_TaxID)]" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[String.IsNullOrEmpty(out_TaxID)]" DisplayName="If TaxID is empty, throw exception" sap:VirtualizedContainerService.HintSize="484,207" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Throw Exception="[New System.Exception(&quot;System 1: TaxID not found&quot;)]" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                <Throw DisplayName="Throw Application Exception" Exception="[New System.Exception(&quot;System 1: TaxID not found&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
               </If.Then>
             </If>
           </Sequence>
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
-    <sads:DebugSymbol.Symbol>d3pDOlxVc2Vyc1xZb3NoaWhpa28gTWl5YWljaGlcRG9jdW1lbnRzXFVpUGF0aFxHZW5lcmF0ZVllYXJseVJlcG9ydEZvclZlbmRvclxTeXN0ZW0xXFN5c3RlbTFfRXh0cmFjdF9WZW5kb3JfSW5mb3JtYXRpb24ueGFtbBBDA20OAgEBRAVrFwIBAkSjAkTWAgIBE0oLaBYCAQNODVIbAgERUw1aGwIBDVsNYhYCAQljDWcSAgEEUKABUMQBAgESWEBYVAIBDlWgAVXDAQIBEGA4YJIBAgEMXTldRAIBCmMbYz4CAQVlEWWOAQIBB2UiZWECAQg=</sads:DebugSymbol.Symbol>
   </Sequence>
-  <sap2010:WorkflowViewState.ViewStateManager>
-    <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="GetValue_1" sap:VirtualizedContainerService.HintSize="464,106" />
-      <sap2010:ViewStateData Id="GetValue_2" sap:VirtualizedContainerService.HintSize="464,106" />
-      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="464,60" />
-      <sap2010:ViewStateData Id="Throw_1" sap:VirtualizedContainerService.HintSize="200,22" />
-      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,209" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="486,725">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="500,871" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="522,1119">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="System1_Extract_Vendor_Information_1" sap:VirtualizedContainerService.HintSize="562,1199" />
-    </sap2010:ViewStateManager>
-  </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
